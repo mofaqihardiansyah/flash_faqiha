@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediksi Diabetes Pima</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f9;}
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 500px; margin: auto; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9em;}
+        input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold;}
+        button:hover { background-color: #0056b3; }
+        .hasil { margin-top: 20px; font-weight: bold; text-align: center; font-size: 1.3em; padding: 15px; border-radius: 5px;}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 style="text-align: center; color: #333;">Deteksi Pima Indians Diabetes</h2>
+    <form action="/predict" method="POST">
+        <div class="form-group">
+            <label>1. Pregnancies (Kehamilan):</label>
+            <input type="number" name="pregnancies" required placeholder="Contoh: 1" step="any">
+        </div>
+        <div class="form-group">
+            <label>2. Glucose (Kadar Glukosa):</label>
+            <input type="number" name="glucose" required placeholder="Contoh: 85" step="any">
+        </div>
+        <div class="form-group">
+            <label>3. Blood Pressure (Tekanan Darah):</label>
+            <input type="number" name="bloodpressure" required placeholder="Contoh: 66" step="any">
+        </div>
+        <div class="form-group">
+            <label>4. Skin Thickness (Ketebalan Kulit):</label>
+            <input type="number" name="skinthickness" required placeholder="Contoh: 29" step="any">
+        </div>
+        <div class="form-group">
+            <label>5. Insulin:</label>
+            <input type="number" name="insulin" required placeholder="Contoh: 0" step="any">
+        </div>
+        <div class="form-group">
+            <label>6. BMI (Body Mass Index):</label>
+            <input type="number" name="bmi" required placeholder="Contoh: 26.6" step="any">
+        </div>
+        <div class="form-group">
+            <label>7. Diabetes Pedigree Function:</label>
+            <input type="number" name="pedigree" required placeholder="Contoh: 0.351" step="any">
+        </div>
+        <div class="form-group">
+            <label>8. Age (Usia):</label>
+            <input type="number" name="age" required placeholder="Contoh: 31" step="any">
+        </div>
+
+        <button type="submit">Diagnosa Sekarang</button>
+    </form>
+
+    {% if hasil_prediksi %}
+    <div class="hasil" style="background-color: {{ warna }}; color: white;">
+        Hasil: {{ hasil_prediksi }}
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
